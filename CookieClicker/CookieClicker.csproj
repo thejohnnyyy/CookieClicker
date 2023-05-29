@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>CookieClicker</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Graphics\menuText.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Graphics\cookie.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Classes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Graphics\cookie.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Graphics\menuText.png" />
+  </ItemGroup>
+
+</Project>
