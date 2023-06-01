@@ -23,7 +23,8 @@ namespace CookieClicker
     public partial class MainWindow : Window
     {
         #region INT
-        private int clickCntr = 0;
+        private Int64 clickCntr = 0;
+        
 
         int clickPower = 1;
         int ownedPower = 1;
@@ -37,7 +38,7 @@ namespace CookieClicker
         int ownedAuto10 = 0;
         int clickAutoSum = 0;
 
-        public int ClickCntr { get => clickCntr; set => clickCntr = value; }
+        public Int64 ClickCntr { get => clickCntr; set => clickCntr = value; }
 
         #endregion INT
 
@@ -50,7 +51,7 @@ namespace CookieClicker
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += clickAuto;
             timer.Start();
-;
+
         }
 
         //Auto clicker every 1 sec
@@ -133,6 +134,10 @@ namespace CookieClicker
 
         #endregion Expander
 
+        public class Variables
+        {
+            
+        }
 
     }
 }

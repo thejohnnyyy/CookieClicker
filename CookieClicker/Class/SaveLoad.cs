@@ -8,7 +8,6 @@ namespace CookieClicker.Class
 {
     class SaveLoad
     {
-       
 
     }
 }
