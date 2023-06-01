@@ -9,15 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Classes\**" />
+    <EmbeddedResource Remove="Classes\**" />
+    <None Remove="Classes\**" />
+    <Page Remove="Classes\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Graphics\menuText.png" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Graphics\cookie.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Classes\" />
   </ItemGroup>
 
   <ItemGroup>

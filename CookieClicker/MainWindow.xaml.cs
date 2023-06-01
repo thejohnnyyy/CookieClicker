@@ -23,7 +23,7 @@ namespace CookieClicker
     public partial class MainWindow : Window
     {
         #region INT
-        int clickCntr = 0;
+        private int clickCntr = 0;
 
         int clickPower = 1;
         int ownedPower = 1;
@@ -36,6 +36,8 @@ namespace CookieClicker
         int clickAuto10 = 0;
         int ownedAuto10 = 0;
         int clickAutoSum = 0;
+
+        public int ClickCntr { get => clickCntr; set => clickCntr = value; }
 
         #endregion INT
 
@@ -55,16 +57,16 @@ namespace CookieClicker
         private void clickAuto(object sender, EventArgs e)
         {
             clickAutoSum = clickAuto1 + clickAuto5 + clickAuto10;
-            clickCounter.Text = clickCntr.ToString();
-            clickCntr += clickAutoSum;
-            Debug.WriteLine(clickCntr + "+" + clickAutoSum + "+" + clickPower);
+            clickCounter.Text = ClickCntr.ToString();
+            ClickCntr += clickAutoSum;
+            Debug.WriteLine(ClickCntr + "+" + clickAutoSum + "+" + clickPower);
         }
 
         //Cookie clicks
         private void imageBtn_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            clickCntr += clickPower;
-            clickCounter.Text = clickCntr.ToString();
+            ClickCntr += clickPower;
+            clickCounter.Text = ClickCntr.ToString();
 
             //makes button bigger after making it smaller
             imageBtn.Width = 300;
