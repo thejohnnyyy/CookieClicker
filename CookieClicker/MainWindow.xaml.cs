@@ -23,27 +23,19 @@ namespace CookieClicker
     public partial class MainWindow : Window
     {
         #region INT
-        int clickCntr = 0;
-
-        int clickPower = 1;
-        int ownedPower = 1;
-
-        //INTS for Auto clicks
-        int clickAuto1 = 0;
-        int ownedAuto1 = 0;
-        int clickAuto5 = 0;
-        int ownedAuto5 = 0;
-        int clickAuto10 = 0;
-        int ownedAuto10 = 0;
+        
         int clickAutoSum = 0;
 
         #endregion INT
 
+        Variables variables;
+
         public MainWindow()
         {
             InitializeComponent();
+            variables = new Variables();
 
-            //Repeats Indefinetly clickAuto
+            //Repeats Indefinetly clickAuto every 1 sec
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += clickAuto;
@@ -54,19 +46,19 @@ namespace CookieClicker
         //Auto clicker every 1 sec
         private void clickAuto(object sender, EventArgs e)
         {
-            clickAutoSum = clickAuto1 + clickAuto5 + clickAuto10;
-            clickCounter.Text = clickCntr.ToString();
-            clickCntr += clickAutoSum;
+            clickAutoSum = variables.ClickAuto1 + variables.ClickAuto5 + variables.ClickAuto10;
+            clickCounter.Text = variables.ClickCntr.ToString();
+            variables.ClickCntr += clickAutoSum;
 
-            Debug.WriteLine(clickCntr + "+" + clickAutoSum + "+" + clickPower);
+            Debug.WriteLine(variables.ClickCntr + "+" + clickAutoSum + "+" + variables.ClickPower);
         }
 
         //Cookie clicks
         private void imageBtn_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            clickCntr += clickPower;
-            clickCounter.Text = clickCntr.ToString();
+            variables.ClickCntr += variables.ClickPower;
+            clickCounter.Text = variables.ClickCntr.ToString();
 
             //makes button bigger after making it smaller
             imageBtn.Width = 300;
@@ -86,32 +78,32 @@ namespace CookieClicker
         //Upgrades the power of a click, when clicking the cookie 
         private void powerUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            clickPower += 1;
-            ownedPower++;
-            ownerPower.Text = ownedPower.ToString();
+            variables.ClickPower += 1;
+            variables.OwnedPower++;
+            ownerPower.Text = variables.OwnedPower.ToString();
         }
 
         //Idle clicking, gives clicks automaticly
         //P1 gives +1 to auto clicking. Same applies to all the AutoP# upgrades
         private void powerAutoP1_Click(object sender, RoutedEventArgs e)
         {
-            clickAuto1++;
-            ownedAuto1++;
-            ownedP1.Text = ownedAuto1.ToString();
+            variables.ClickAuto1++;
+            variables.OwnedAuto1++;
+            ownedP1.Text = variables.OwnedAuto1.ToString();
         }
 
         private void powerAutoP5_Click(object sender, RoutedEventArgs e)
         {
-            clickAuto5 += 5;
-            ownedAuto5++;
-            ownedP5.Text = ownedAuto5.ToString();
+            variables.ClickAuto5 += 5;
+            variables.OwnedAuto5++;
+            ownedP5.Text = variables.OwnedAuto5.ToString();
         }
 
         private void powerAutoP10_Click(object sender, RoutedEventArgs e)
         {
-            clickAuto10 += 10;
-            ownedAuto10++;
-            ownedP10.Text = ownedAuto10.ToString();
+            variables.ClickAuto10 += 10;
+            variables.OwnedAuto10++;
+            ownedP10.Text = variables.OwnedAuto10.ToString();
         }
 
         #endregion Upgrade
@@ -132,6 +124,31 @@ namespace CookieClicker
 
         #endregion Expander
 
+        public class Variables
+        {
+            private int clickCntr = 0;
+            private int clickPower = 1;
+            //Variables for Upgrades
+            //ownedAuto is for text in xaml
+            //clickAuto is for code
+            private int ownedPower = 1;
+            private int clickAuto1 = 0;
+            private int ownedAuto1 = 0;
+            private int clickAuto5 = 0;
+            private int ownedAuto5 = 0;
+            private int clickAuto10 = 0;
+            private int ownedAuto10 = 0;
 
+            public int ClickCntr { get { return clickCntr; } set { clickCntr = value; } }
+            public int ClickPower { get { return clickPower;  } set { clickPower = value; } }
+
+            public int OwnedPower { get => ownedPower; set => ownedPower = value; }
+            public int ClickAuto1 { get => clickAuto1; set => clickAuto1 = value; }
+            public int OwnedAuto1 { get => ownedAuto1; set => ownedAuto1 = value; }
+            public int ClickAuto5 { get => clickAuto5; set => clickAuto5 = value; }
+            public int OwnedAuto5 { get => ownedAuto5; set => ownedAuto5 = value; }
+            public int ClickAuto10 { get => clickAuto10; set => clickAuto10 = value; }
+            public int OwnedAuto10 { get => ownedAuto10; set => ownedAuto10 = value; }
+        }
     }
 }
