@@ -141,7 +141,7 @@ namespace CookieClicker
 
             public int ClickCntr { get { return clickCntr; } set { clickCntr = value; } }
             public int ClickPower { get { return clickPower;  } set { clickPower = value; } }
-
+            
             public int OwnedPower { get => ownedPower; set => ownedPower = value; }
             public int ClickAuto1 { get => clickAuto1; set => clickAuto1 = value; }
             public int OwnedAuto1 { get => ownedAuto1; set => ownedAuto1 = value; }
