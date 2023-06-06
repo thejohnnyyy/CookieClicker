@@ -130,7 +130,7 @@ namespace CookieClicker
             private int clickPower = 1;
             //Variables for Upgrades
             //ownedAuto is for text in xaml
-            //clickAuto is for code
+            //clickAuto is for cod
             private int ownedPower = 1;
             private int clickAuto1 = 0;
             private int ownedAuto1 = 0;
