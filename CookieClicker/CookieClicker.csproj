@@ -9,16 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Graphics\menuText.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Graphics\cookie.png" />
+    <None Include="Graphics\menuText.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Graphics\cookie.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
