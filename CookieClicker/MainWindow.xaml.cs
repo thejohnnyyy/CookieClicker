@@ -83,36 +83,80 @@ namespace CookieClicker
 
         }
 
+
+
         #region Upgrade 
+
         //Upgrades the power of a click, when clicking the cookie 
         private void powerUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            variables.ClickPower += 1;
-            variables.OwnedPower++;
-            ownerPower.Text = variables.OwnedPower.ToString();
+
+
+            if (variables.CostPower <= variables.ClickCntr)
+            {
+                variables.ClickCntr -= variables.CostPower;
+
+                variables.CostPower *= 2;
+                variables.ClickPower += 1;
+                variables.OwnedPower++;
+                costPower.Text = variables.CostPower.ToString();
+                ownerPower.Text = variables.OwnedPower.ToString();
+            }
+            else { MessageBox.Show("nemuzes si dovolit upgrade", "Upgrade"); }
         }
 
         //Idle clicking, gives clicks automaticly
-        //P1 gives +1 to auto clicking. Same applies to all the AutoP# upgrades
+        //Px gives +x to auto clicking. Same applies to all the AutoP# upgrades
         private void powerAutoP1_Click(object sender, RoutedEventArgs e)
         {
-            variables.ClickAuto1++;
-            variables.OwnedAuto1++;
-            ownedP1.Text = variables.OwnedAuto1.ToString();
+
+            if (variables.CostAuto1 <= variables.ClickCntr)
+            {
+                variables.ClickCntr -= variables.CostAuto1;
+
+                variables.ClickAuto1++;
+                variables.OwnedAuto1++;
+                variables.CostAuto1 *= 3;
+                costP1.Text = variables.CostAuto1.ToString();
+                ownedP1.Text = variables.OwnedAuto1.ToString();
+
+                
+            }
+            else { MessageBox.Show("nemuzes si dovolit upgrade", "Upgrade"); } 
         }
 
         private void powerAutoP5_Click(object sender, RoutedEventArgs e)
         {
-            variables.ClickAuto5 += 5;
-            variables.OwnedAuto5++;
-            ownedP5.Text = variables.OwnedAuto5.ToString();
+
+                if (variables.CostAuto5 <= variables.ClickCntr)
+                {
+                    variables.ClickCntr -= variables.CostAuto5;
+                    variables.CostAuto5 *= 4;
+
+                    variables.ClickAuto5 += 5;
+                    variables.OwnedAuto5++;
+                    ownedP5.Text = variables.OwnedAuto5.ToString();
+                    costP5.Text = variables.CostAuto5.ToString();
+                }
+                else { MessageBox.Show("nemuzes si dovolit upgrade", "Upgrade"); }
         }
 
         private void powerAutoP10_Click(object sender, RoutedEventArgs e)
         {
-            variables.ClickAuto10 += 10;
-            variables.OwnedAuto10++;
-            ownedP10.Text = variables.OwnedAuto10.ToString();
+
+
+
+            if (variables.CostAuto10 <= variables.ClickCntr)
+            {
+                variables.ClickCntr -= variables.CostAuto10;
+                variables.CostAuto10 *= 5;
+
+                variables.ClickAuto10 += 10;
+                variables.OwnedAuto10++;
+                ownedP10.Text = variables.OwnedAuto10.ToString();
+                costP10.Text = variables.CostAuto10.ToString();
+            }
+            else { MessageBox.Show("Nemuzes si dovolit upgrade", "Upgrade"); }
         }
 
         #endregion Upgrade
@@ -136,7 +180,7 @@ namespace CookieClicker
 
         public class Variables
         {
-            private int clickCntr = 0;
+            private Int64 clickCntr = 0;
             private int clickPower = 1;
             //Variables for Upgrades
             //ownedAuto is for text in xaml
@@ -148,8 +192,13 @@ namespace CookieClicker
             private int ownedAuto5 = 0;
             private int clickAuto10 = 0;
             private int ownedAuto10 = 0;
+            //cost
+            private int costPower = 50;
+            private int costAuto1 = 100;
+            private int costAuto5 = 250;
+            private int costAuto10 = 500;
 
-            public int ClickCntr { get { return clickCntr; } set { clickCntr = value; } }
+            public Int64 ClickCntr { get => clickCntr; set => clickCntr = value; }
             public int ClickPower { get { return clickPower;  } set { clickPower = value; } }
             
             public int OwnedPower { get => ownedPower; set => ownedPower = value; }
@@ -159,6 +208,11 @@ namespace CookieClicker
             public int OwnedAuto5 { get => ownedAuto5; set => ownedAuto5 = value; }
             public int ClickAuto10 { get => clickAuto10; set => clickAuto10 = value; }
             public int OwnedAuto10 { get => ownedAuto10; set => ownedAuto10 = value; }
+            //cost
+            public int CostPower { get => costPower; set => costPower = value; }
+            public int CostAuto1 { get => costAuto1; set => costAuto1 = value; }
+            public int CostAuto5 { get => costAuto5; set => costAuto5 = value; }
+            public int CostAuto10 { get => costAuto10; set => costAuto10 = value; }
         }
 
         #region SaveLoad
