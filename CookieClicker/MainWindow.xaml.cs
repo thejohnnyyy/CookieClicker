@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace CookieClicker
 {
@@ -28,6 +31,9 @@ namespace CookieClicker
 
         #endregion INT
 
+        //cesta pro save
+        string cesta = "saveFile.xml";
+
         Variables variables;
 
         public MainWindow()
@@ -40,7 +46,7 @@ namespace CookieClicker
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += clickAuto;
             timer.Start();
-;
+
         }
 
         //Auto clicker every 1 sec
@@ -49,6 +55,9 @@ namespace CookieClicker
             clickAutoSum = variables.ClickAuto1 + variables.ClickAuto5 + variables.ClickAuto10;
             clickCounter.Text = variables.ClickCntr.ToString();
             variables.ClickCntr += clickAutoSum;
+
+
+
 
             Debug.WriteLine(variables.ClickCntr + "+" + clickAutoSum + "+" + variables.ClickPower);
         }
@@ -124,6 +133,7 @@ namespace CookieClicker
 
         #endregion Expander
 
+
         public class Variables
         {
             private int clickCntr = 0;
@@ -150,5 +160,48 @@ namespace CookieClicker
             public int ClickAuto10 { get => clickAuto10; set => clickAuto10 = value; }
             public int OwnedAuto10 { get => ownedAuto10; set => ownedAuto10 = value; }
         }
+
+        #region SaveLoad
+        //saving
+        public void saveBTN_Click(object sender, RoutedEventArgs e)
+        {
+            UlozData();
+            void UlozData()
+            {
+                XmlSerializer serializer = new XmlSerializer(variables.GetType());
+                using (StreamWriter sw = new StreamWriter(cesta))
+                {
+                    serializer.Serialize(sw, variables);
+                }
+            }
+        }
+
+        //loading
+        private void loadBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NactiData();
+            void NactiData()
+            {
+                XmlSerializer serializer = new XmlSerializer(variables.GetType());
+                if (File.Exists(cesta))
+                {
+                    using (StreamReader sr = new StreamReader(cesta))
+                    {
+                        variables = (Variables)serializer.Deserialize(sr);
+                    }
+
+                    ownedP1.Text = variables.OwnedAuto1.ToString();
+                    ownedP5.Text = variables.OwnedAuto5.ToString();
+                    ownedP10.Text = variables.OwnedAuto10.ToString();
+
+                }
+                //error message, no saveFile.xml detected
+                else
+                {
+                    MessageBox.Show("cesta nelze najit", "Error");
+                }
+            }
+        }
+        #endregion SaveLoad
     }
 }

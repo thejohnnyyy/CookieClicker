@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="Graphics\cookie.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
@@ -28,6 +24,10 @@
 
   <ItemGroup>
     <Resource Include="Graphics\menuText.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Classes\" />
   </ItemGroup>
 
 </Project>

@@ -30,6 +30,8 @@
         </Expander>
         <Image x:Name="imageBtn" Margin="479,354,557,68" Source="/Graphics/cookie.png" Stretch="Fill" MouseLeftButtonUp="imageBtn_MouseRightButtonDown" MouseLeftButtonDown="imageBtn_MouseLeftButtonDown" Width="300" Height="300"/>
         <Image Margin="10,0,0,10" Source="/Graphics/menuText.png" Stretch="Fill" HorizontalAlignment="Left" Width="230" Height="99" VerticalAlignment="Bottom"/>
+        <Button x:Name="saveBTN" Content="Save" HorizontalAlignment="Left" Margin="34,546,0,0" VerticalAlignment="Top" Height="70" Width="182" Click="saveBTN_Click"/>
+        <Button x:Name="loadBTN" Content="Load" HorizontalAlignment="Left" Margin="34,421,0,0" VerticalAlignment="Top" Height="98" Width="200" Click="loadBTN_Click"/>
 
 
 
