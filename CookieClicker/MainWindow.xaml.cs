@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Xml.Serialization;
 using System.Xml;
+using CookieClicker.Classes;
 
 namespace CookieClicker
 {
@@ -226,6 +227,7 @@ namespace CookieClicker
                 using (StreamWriter sw = new StreamWriter(cesta))
                 {
                     serializer.Serialize(sw, variables);
+                    Debug.WriteLine("saved");
                 }
             }
         }
@@ -242,11 +244,17 @@ namespace CookieClicker
                     using (StreamReader sr = new StreamReader(cesta))
                     {
                         variables = (Variables)serializer.Deserialize(sr);
+                        Debug.WriteLine("loaded");
                     }
 
                     ownedP1.Text = variables.OwnedAuto1.ToString();
                     ownedP5.Text = variables.OwnedAuto5.ToString();
                     ownedP10.Text = variables.OwnedAuto10.ToString();
+
+                    costPower.Text = variables.CostPower.ToString();
+                    costP1.Text = variables.CostAuto1.ToString();
+                    costP5.Text = variables.CostAuto5.ToString();
+                    costP10.Text = variables.CostAuto10.ToString();
 
                 }
                 //error message, no saveFile.xml detected
@@ -257,5 +265,12 @@ namespace CookieClicker
             }
         }
         #endregion SaveLoad
+
+
+        private void menuBTN_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MenuWindow MW = new MenuWindow();
+            MW.Show();
+        }
     }
 }

@@ -25,7 +25,7 @@
                 <TextBlock x:Name="costP1" HorizontalAlignment="Left" Margin="327,156,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="100" VerticalAlignment="Top" Width="160"/>
                 <TextBlock x:Name="costP5" HorizontalAlignment="Left" Margin="327,235,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="250" VerticalAlignment="Top" Width="160"/>
                 <TextBlock x:Name="costP10" HorizontalAlignment="Left" Margin="330,308,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="500" VerticalAlignment="Top" Width="160"/>
-                
+
                 <Button x:Name="powerUpgrade" Content="Power" Margin="29,86,0,0" VerticalAlignment="Top" Width="140" Click="powerUpgrade_Click" HorizontalAlignment="Left" FontFamily="Arial"></Button>
                 <Button x:Name="powerAutoP1" Content="Auto Clicker +1" Margin="29,156,0,0" VerticalAlignment="Top" Width="140" HorizontalAlignment="Left" FontFamily="Arial" Click="powerAutoP1_Click"></Button>
                 <Button x:Name="powerAutoP5" Content="Auto Clicker +5" Margin="29,231,0,0" VerticalAlignment="Top" Width="140" HorizontalAlignment="Left" FontFamily="Arial" Click="powerAutoP5_Click"/>
@@ -34,8 +34,9 @@
             </Grid>
         </Expander>
         <Image x:Name="imageBtn" Margin="479,354,557,68" Source="/Graphics/cookie.png" Stretch="Fill" MouseLeftButtonUp="imageBtn_MouseRightButtonDown" MouseLeftButtonDown="imageBtn_MouseLeftButtonDown" Width="300" Height="300"/>
-        <Button x:Name="saveBTN" Content="Save" HorizontalAlignment="Left" Margin="10,604,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="saveBTN_Click"/>
-        <Button x:Name="loadBTN" Content="Load" HorizontalAlignment="Left" Margin="10,677,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="loadBTN_Click"/>
+        <Button x:Name="saveBTN" Content="Save" HorizontalAlignment="Left" Margin="10,358,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="saveBTN_Click"/>
+        <Button x:Name="loadBTN" Content="Load" HorizontalAlignment="Left" Margin="10,431,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="loadBTN_Click"/>
+        <Image x:Name="menuBTN" Margin="10,643,1126,10" Source="/Graphics/menuText.png" Stretch="Fill" MouseLeftButtonDown="menuBTN_MouseLeftButtonDown"/>
 
 
 

@@ -1,0 +1,16 @@
+﻿<Window x:Class="CookieClicker.Classes.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CookieClicker.Classes"
+        mc:Ignorable="d"
+        Title="MenuWindow" Height="450" Width="400"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+       >
+    <Grid Background="Wheat">
+        <Button x:Name="saveBTN" Content="Save" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="saveBTNMenu_Click"/>
+        <Button x:Name="loadBTN" Content="Load" HorizontalAlignment="Center" Margin="0,165,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="loadBTNMenu_Click"/>
+    </Grid>
+</Window>
